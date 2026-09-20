@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  /* Shared layout rhythm. Bootstrap owns the grid; Tailwind owns the details. */
+  .shell {
+    @apply mx-auto w-full px-4 sm:px-6 lg:px-8;
+    max-width: 1280px;
+  }
+
+  .card-pad {
+    @apply p-6 sm:p-7 lg:p-8;
+  }
+
+  .muted {
+    color: var(--text-low);
+  }
+
+  .lead-text {
+    @apply text-base sm:text-lg leading-relaxed;
+    color: var(--text-mid);
+  }
+}

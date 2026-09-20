@@ -1,0 +1,796 @@
+/* ============================================================================
+   VICTOR NJOROGE — DESIGN SYSTEM
+   ----------------------------------------------------------------------------
+   Subliminal colour coding. Every hue in this file is doing persuasive work:
+
+     royal      #7c3aed  violet ....... royalty, authority, rarefied expertise
+     divine     #e8b923  gold ......... divinity, prestige, the "gold standard"
+     credible   #2563eb  deep blue .... credibility, trust, institutional weight
+     purpose    #10b981  emerald ...... purpose, growth, forward motion
+     exuberance #ff6b9d  rose ......... exuberance, energy, human warmth
+
+   Sections carry a `data-accent` attribute which rebinds --accent* locally, so
+   a single set of components inherits the mood of whichever section holds them.
+   ========================================================================== */
+
+:root {
+  /* Base canvas — near-black with a blue bias reads as depth, not flatness. */
+  --obsidian: #05060f;
+  --abyss: #0a0c1c;
+  --midnight: #10142e;
+  --ink: #161b3d;
+
+  /* Persuasion palette */
+  --royal: #7c3aed;
+  --royal-deep: #3b0a6b;
+  --royal-light: #a78bfa;
+
+  --divine: #e8b923;
+  --divine-deep: #a37a0d;
+  --divine-light: #f7dd8a;
+
+  --credible: #2563eb;
+  --credible-deep: #0b2a6b;
+  --credible-light: #60a5fa;
+
+  --purpose: #10b981;
+  --purpose-deep: #064e3b;
+  --purpose-light: #5eead4;
+
+  --exuberance: #ff6b9d;
+  --exuberance-deep: #9d174d;
+  --exuberance-light: #ffa8c5;
+
+  /* Text */
+  --text-high: #f4f5ff;
+  --text-mid: #b8bcd9;
+  --text-low: #7f85ab;
+
+  /* Default accent binding (overridden per section) */
+  --accent: var(--royal);
+  --accent-deep: var(--royal-deep);
+  --accent-light: var(--royal-light);
+  --accent-rgb: 124, 58, 237;
+
+  /* Surfaces & depth */
+  --glass: rgba(255, 255, 255, 0.045);
+  --glass-strong: rgba(255, 255, 255, 0.075);
+  --hairline: rgba(255, 255, 255, 0.1);
+  --hairline-bright: rgba(255, 255, 255, 0.2);
+
+  --shadow-lift: 0 24px 60px -20px rgba(0, 0, 0, 0.85);
+  --shadow-glow: 0 0 60px -12px rgba(var(--accent-rgb), 0.45);
+
+  --radius: 20px;
+  --radius-lg: 28px;
+
+  /* 3D depth scale — one place to tune the whole spatial feel. */
+  --depth-1: 18px;
+  --depth-2: 40px;
+  --depth-3: 70px;
+  --perspective: 1400px;
+
+  --ease-regal: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* --- Per-section accent rebinding ---------------------------------------- */
+[data-accent='royal'] {
+  --accent: var(--royal);
+  --accent-deep: var(--royal-deep);
+  --accent-light: var(--royal-light);
+  --accent-rgb: 124, 58, 237;
+}
+[data-accent='divine'] {
+  --accent: var(--divine);
+  --accent-deep: var(--divine-deep);
+  --accent-light: var(--divine-light);
+  --accent-rgb: 232, 185, 35;
+}
+[data-accent='credible'] {
+  --accent: var(--credible);
+  --accent-deep: var(--credible-deep);
+  --accent-light: var(--credible-light);
+  --accent-rgb: 37, 99, 235;
+}
+[data-accent='purpose'] {
+  --accent: var(--purpose);
+  --accent-deep: var(--purpose-deep);
+  --accent-light: var(--purpose-light);
+  --accent-rgb: 16, 185, 129;
+}
+[data-accent='exuberance'] {
+  --accent: var(--exuberance);
+  --accent-deep: var(--exuberance-deep);
+  --accent-light: var(--exuberance-light);
+  --accent-rgb: 255, 107, 157;
+}
+
+/* --- Base ---------------------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  background: var(--obsidian);
+  color: var(--text-mid);
+  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* A fixed aurora of the five persuasion hues sits behind everything. It is
+   deliberately low-opacity: felt rather than seen. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: -20%;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(40% 35% at 15% 12%, rgba(124, 58, 237, 0.3), transparent 62%),
+    radial-gradient(35% 30% at 85% 18%, rgba(232, 185, 35, 0.14), transparent 60%),
+    radial-gradient(45% 40% at 78% 72%, rgba(37, 99, 235, 0.24), transparent 64%),
+    radial-gradient(35% 32% at 22% 82%, rgba(16, 185, 129, 0.16), transparent 62%),
+    radial-gradient(28% 26% at 52% 48%, rgba(255, 107, 157, 0.1), transparent 66%);
+  filter: blur(30px);
+  animation: aurora-drift 38s var(--ease-regal) infinite alternate;
+}
+
+/* Fine grain stops the large gradients from banding on cheap panels. */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@keyframes aurora-drift {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(2.5%, -2%, 0) scale(1.07); }
+  100% { transform: translate3d(-2%, 2.5%, 0) scale(1.03); }
+}
+
+::selection {
+  background: rgba(var(--accent-rgb), 0.35);
+  color: var(--text-high);
+}
+
+/* --- Scrollbar ----------------------------------------------------------- */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--obsidian); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--royal), var(--credible));
+  border-radius: 99px;
+  border: 2px solid var(--obsidian);
+}
+::-webkit-scrollbar-thumb:hover { background: linear-gradient(var(--divine), var(--royal)); }
+
+/* --- Typography ---------------------------------------------------------- */
+.font-display { font-family: 'Playfair Display', Georgia, serif; }
+.font-mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+
+.text-gradient-royal {
+  background: linear-gradient(120deg, var(--royal-light) 0%, var(--divine-light) 50%, var(--credible-light) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-gradient-accent {
+  background: linear-gradient(120deg, var(--accent-light), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Gold leaf — reserved for the name and headline numbers only. Scarcity is
+   what makes gold read as divine rather than decorative. */
+.text-gold-leaf {
+  background: linear-gradient(
+    100deg,
+    #a37a0d 0%, #e8b923 18%, #fff6d4 34%, #e8b923 48%, #a37a0d 62%, #f7dd8a 82%, #e8b923 100%
+  );
+  background-size: 260% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gold-sheen 7s linear infinite;
+}
+
+@keyframes gold-sheen {
+  to { background-position: 260% center; }
+}
+
+.eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+}
+
+/* ============================================================================
+   3D SYSTEM
+   ========================================================================== */
+
+.scene {
+  perspective: var(--perspective);
+  perspective-origin: 50% 40%;
+}
+
+.preserve-3d { transform-style: preserve-3d; }
+
+/* Tilt card — JS writes --rx/--ry/--mx/--my, CSS does the rest so the
+   animation stays on the compositor. */
+.tilt-card {
+  --rx: 0deg;
+  --ry: 0deg;
+  --mx: 50%;
+  --my: 50%;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: perspective(var(--perspective)) rotateX(var(--rx)) rotateY(var(--ry)) translateZ(0);
+  transition: transform 0.5s var(--ease-regal), box-shadow 0.5s var(--ease-regal);
+  will-change: transform;
+}
+
+.tilt-card.is-active {
+  transition: transform 0.08s linear, box-shadow 0.4s var(--ease-regal);
+}
+
+/* The specular highlight tracks the pointer — the single cue that sells a flat
+   panel as a physical, lit surface. */
+.tilt-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-regal);
+  background: radial-gradient(
+    380px circle at var(--mx) var(--my),
+    rgba(var(--accent-rgb), 0.22),
+    transparent 45%
+  );
+}
+
+.tilt-card.is-active::after { opacity: 1; }
+
+.layer-1 { transform: translateZ(var(--depth-1)); }
+.layer-2 { transform: translateZ(var(--depth-2)); }
+.layer-3 { transform: translateZ(var(--depth-3)); }
+
+/* --- Glass panels -------------------------------------------------------- */
+.glass-panel {
+  position: relative;
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.015) 42%, transparent 70%),
+    rgba(10, 12, 28, 0.66);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  backdrop-filter: blur(22px) saturate(140%);
+  -webkit-backdrop-filter: blur(22px) saturate(140%);
+  box-shadow:
+    var(--shadow-lift),
+    inset 0 1px 0 rgba(255, 255, 255, 0.11),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+/* Top edge catches light like a bevel — cheap, convincing 3D. */
+.glass-panel::before {
+  content: '';
+  position: absolute;
+  inset-inline: 12%;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(var(--accent-rgb), 0.9), transparent);
+  opacity: 0.55;
+}
+
+.glass-panel:hover {
+  border-color: rgba(var(--accent-rgb), 0.42);
+  box-shadow:
+    var(--shadow-lift),
+    var(--shadow-glow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
+/* Rotating conic border for the highest-status cards only. */
+.aura-border {
+  position: relative;
+  isolation: isolate;
+}
+
+.aura-border::before {
+  content: '';
+  position: absolute;
+  inset: -1.5px;
+  z-index: -1;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: conic-gradient(
+    from var(--angle, 0deg),
+    transparent 0%,
+    rgba(var(--accent-rgb), 0.95) 12%,
+    var(--divine) 25%,
+    transparent 42%,
+    transparent 100%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.5s var(--ease-regal);
+  animation: aura-spin 5s linear infinite;
+}
+
+.aura-border:hover::before,
+.aura-border.is-active::before { opacity: 1; }
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes aura-spin {
+  to { --angle: 360deg; }
+}
+
+/* --- Hero orb: layered CSS-3D rings, no WebGL dependency ------------------ */
+.orb-stage {
+  position: relative;
+  width: min(430px, 82vw);
+  aspect-ratio: 1;
+  transform-style: preserve-3d;
+  animation: orb-float 8s ease-in-out infinite;
+}
+
+@keyframes orb-float {
+  0%, 100% { transform: translateY(0) rotateX(6deg); }
+  50% { transform: translateY(-22px) rotateX(-4deg); }
+}
+
+.orb-core {
+  position: absolute;
+  inset: 21%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 32% 26%, #fff8e0 0%, var(--divine) 16%, var(--royal) 52%, var(--royal-deep) 76%, #08040f 100%);
+  /* Inset shading only — the outward glow lives on .orb-halo so it is never
+     clipped by the composited preserve-3d layer. */
+  box-shadow:
+    inset -22px -22px 60px rgba(0, 0, 0, 0.72),
+    inset 14px 14px 46px rgba(255, 255, 255, 0.14);
+  animation: orb-pulse 5.5s ease-in-out infinite;
+}
+
+/* Oversized, non-3D halo. Sits behind the rings and bleeds past the stage. */
+.orb-halo {
+  position: absolute;
+  inset: -18%;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(circle, rgba(124, 58, 237, 0.42) 0%, rgba(124, 58, 237, 0.16) 34%, transparent 62%),
+    radial-gradient(circle, rgba(232, 185, 35, 0.2) 0%, transparent 52%);
+  filter: blur(26px);
+  animation: orb-pulse 5.5s ease-in-out infinite;
+}
+
+@keyframes orb-pulse {
+  0%, 100% { transform: scale(1); filter: brightness(1); }
+  50% { transform: scale(1.045); filter: brightness(1.18); }
+}
+
+.orb-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(var(--accent-rgb), 0.42);
+  transform-style: preserve-3d;
+}
+
+.orb-ring::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  margin-left: -4px;
+  border-radius: 50%;
+  background: var(--divine-light);
+  box-shadow: 0 0 16px 4px rgba(232, 185, 35, 0.85);
+}
+
+.orb-ring--1 { animation: ring-spin-1 14s linear infinite; border-color: rgba(232, 185, 35, 0.45); }
+.orb-ring--2 { inset: 8%; animation: ring-spin-2 19s linear infinite reverse; border-color: rgba(124, 58, 237, 0.55); }
+.orb-ring--3 { inset: 16%; animation: ring-spin-3 25s linear infinite; border-color: rgba(37, 99, 235, 0.5); }
+
+@keyframes ring-spin-1 {
+  from { transform: rotateX(74deg) rotateZ(0deg); }
+  to { transform: rotateX(74deg) rotateZ(360deg); }
+}
+@keyframes ring-spin-2 {
+  from { transform: rotateX(64deg) rotateY(28deg) rotateZ(0deg); }
+  to { transform: rotateX(64deg) rotateY(28deg) rotateZ(360deg); }
+}
+@keyframes ring-spin-3 {
+  from { transform: rotateX(80deg) rotateY(-22deg) rotateZ(0deg); }
+  to { transform: rotateX(80deg) rotateY(-22deg) rotateZ(360deg); }
+}
+
+/* Orbiting credential chips */
+.orbit-chip {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-style: preserve-3d;
+  animation: chip-orbit var(--orbit-duration, 20s) linear infinite;
+  animation-delay: var(--orbit-delay, 0s);
+}
+
+@keyframes chip-orbit {
+  from { transform: rotate(0deg) translateX(var(--orbit-radius, 210px)) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(var(--orbit-radius, 210px)) rotate(-360deg); }
+}
+
+/* --- Flip card (certifications) ------------------------------------------ */
+.flip-card { perspective: 1600px; }
+
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.8s var(--ease-regal);
+}
+
+.flip-card:hover .flip-inner,
+.flip-card:focus-within .flip-inner,
+.flip-card.is-flipped .flip-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.flip-face--back { transform: rotateY(180deg); }
+
+/* --- Buttons ------------------------------------------------------------- */
+.btn-regal {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.9rem 2rem;
+  border: 0;
+  border-radius: 99px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #0a0714;
+  background: linear-gradient(120deg, var(--divine-light), var(--divine) 45%, var(--divine-deep));
+  box-shadow: 0 14px 34px -10px rgba(232, 185, 35, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  transform-style: preserve-3d;
+  transition: transform 0.4s var(--ease-regal), box-shadow 0.4s var(--ease-regal);
+  overflow: hidden;
+}
+
+.btn-regal:hover {
+  transform: translateY(-3px) rotateX(-9deg) scale(1.02);
+  box-shadow: 0 22px 48px -12px rgba(232, 185, 35, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  color: #0a0714;
+}
+
+.btn-regal::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-120%) skewX(-20deg);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  transition: transform 0.7s var(--ease-regal);
+}
+
+.btn-regal:hover::after { transform: translateX(120%) skewX(-20deg); }
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.9rem 2rem;
+  border-radius: 99px;
+  border: 1px solid var(--hairline-bright);
+  color: var(--text-high);
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  transition: all 0.4s var(--ease-regal);
+}
+
+.btn-ghost:hover {
+  border-color: rgba(var(--accent-rgb), 0.75);
+  background: rgba(var(--accent-rgb), 0.12);
+  color: var(--text-high);
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px -16px rgba(var(--accent-rgb), 0.85);
+}
+
+/* --- Chips / pills ------------------------------------------------------- */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.34rem 0.85rem;
+  border-radius: 99px;
+  border: 1px solid var(--hairline);
+  background: var(--glass);
+  font-size: 0.78rem;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.02em;
+  color: var(--text-mid);
+  transition: all 0.3s var(--ease-regal);
+}
+
+.chip:hover {
+  border-color: rgba(var(--accent-rgb), 0.6);
+  background: rgba(var(--accent-rgb), 0.14);
+  color: var(--text-high);
+  transform: translateY(-2px) translateZ(10px);
+}
+
+/* --- Reveal on scroll ---------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(42px) rotateX(-8deg);
+  transform-origin: top center;
+  transition:
+    opacity 0.9s var(--ease-regal),
+    transform 0.9s var(--ease-regal);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0) rotateX(0deg);
+}
+
+/* --- Section furniture --------------------------------------------------- */
+.section {
+  position: relative;
+  padding: clamp(5rem, 11vw, 9rem) 0;
+}
+
+.divider-regal {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(var(--accent-rgb), 0.65), var(--divine), rgba(var(--accent-rgb), 0.65), transparent);
+  opacity: 0.55;
+}
+
+/* --- Timeline ------------------------------------------------------------ */
+.timeline-rail {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, transparent, var(--royal) 8%, var(--credible) 45%, var(--purpose) 78%, transparent);
+  opacity: 0.45;
+}
+
+.timeline-node {
+  position: absolute;
+  left: 50%;
+  top: 2.4rem;
+  width: 15px;
+  height: 15px;
+  margin-left: -7.5px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 5px rgba(var(--accent-rgb), 0.16), 0 0 26px rgba(var(--accent-rgb), 0.95);
+  transition: all 0.4s var(--ease-regal);
+}
+
+.timeline-item:hover .timeline-node {
+  transform: scale(1.4);
+  box-shadow: 0 0 0 9px rgba(var(--accent-rgb), 0.2), 0 0 38px rgba(var(--accent-rgb), 1);
+}
+
+/* --- Meters -------------------------------------------------------------- */
+.meter {
+  height: 5px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+}
+
+.meter-fill {
+  height: 100%;
+  width: 0;
+  border-radius: 99px;
+  background: linear-gradient(90deg, var(--accent-deep), var(--accent), var(--accent-light));
+  box-shadow: 0 0 14px rgba(var(--accent-rgb), 0.75);
+  transition: width 1.5s var(--ease-regal);
+}
+
+/* --- Marquee ------------------------------------------------------------- */
+.marquee {
+  display: flex;
+  gap: 2.5rem;
+  width: max-content;
+  animation: marquee-scroll 38s linear infinite;
+}
+
+.marquee-wrap:hover .marquee { animation-play-state: paused; }
+
+@keyframes marquee-scroll {
+  to { transform: translateX(-50%); }
+}
+
+/* --- Navbar -------------------------------------------------------------- */
+.nav-shell {
+  transition: all 0.5s var(--ease-regal);
+}
+
+.nav-shell.is-scrolled {
+  background: rgba(5, 6, 15, 0.82);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border-bottom: 1px solid var(--hairline);
+  box-shadow: 0 10px 40px -18px rgba(0, 0, 0, 0.95);
+}
+
+.nav-link {
+  position: relative;
+  padding: 0.4rem 0.2rem;
+  font-size: 0.88rem;
+  color: var(--text-low);
+  transition: color 0.3s var(--ease-regal);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1.5px;
+  background: linear-gradient(90deg, var(--royal-light), var(--divine));
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s var(--ease-regal);
+}
+
+.nav-link:hover,
+.nav-link.is-active { color: var(--text-high); }
+
+.nav-link:hover::after,
+.nav-link.is-active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* --- Cursor glow --------------------------------------------------------- */
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 520px;
+  height: 520px;
+  margin: -260px 0 0 -260px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.2), rgba(37, 99, 235, 0.08) 45%, transparent 68%);
+  filter: blur(46px);
+  transition: opacity 0.4s ease;
+}
+
+/* --- Bootstrap reconciliation -------------------------------------------- */
+.modal-content {
+  background: transparent;
+  border: 0;
+}
+
+a { text-decoration: none; }
+
+/* --- Accessibility ------------------------------------------------------- */
+:focus-visible {
+  outline: 2px solid var(--divine);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+  .tilt-card { transform: none !important; }
+}
+
+/* --- Responsive ---------------------------------------------------------- */
+@media (max-width: 991.98px) {
+  :root { --depth-1: 10px; --depth-2: 22px; --depth-3: 36px; }
+  .cursor-glow { display: none; }
+}
+
+@media (max-width: 575.98px) {
+  .section { padding: 4rem 0; }
+  .orb-stage { width: min(300px, 78vw); }
+}
+
+/* --- Modal --------------------------------------------------------------- */
+@keyframes modal-in {
+  from { opacity: 0; transform: translateY(26px) scale(0.95) rotateX(-6deg); }
+  to { opacity: 1; transform: translateY(0) scale(1) rotateX(0deg); }
+}
+
+/* --- Form fields ---------------------------------------------------------
+   Bootstrap's .form-control:focus resets background to --bs-body-bg (white)
+   and the ring to its default blue, which would tear a hole in the dark
+   theme. These rules keep fields on-palette in every state. */
+.field {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--hairline);
+  background: rgba(255, 255, 255, 0.045);
+  color: var(--text-high);
+  font-family: inherit;
+  font-weight: 300;
+  transition: border-color 0.3s var(--ease-regal), background 0.3s var(--ease-regal), box-shadow 0.3s var(--ease-regal);
+}
+
+.field::placeholder {
+  color: var(--text-low);
+  opacity: 0.75;
+}
+
+.field:focus,
+.field:focus-visible {
+  outline: none;
+  background: rgba(255, 255, 255, 0.075);
+  border-color: rgba(var(--accent-rgb), 0.75);
+  color: var(--text-high);
+  box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.16);
+}
+
+textarea.field { resize: vertical; min-height: 8rem; }
+
+/* Chrome paints autofilled inputs with an opaque yellow-white wash; the inset
+   shadow trick is the only reliable way to keep them dark. */
+.field:-webkit-autofill,
+.field:-webkit-autofill:hover,
+.field:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--text-high);
+  -webkit-box-shadow: 0 0 0 1000px #131735 inset;
+  caret-color: var(--text-high);
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.btn-regal:disabled { opacity: 0.6; cursor: not-allowed; }
