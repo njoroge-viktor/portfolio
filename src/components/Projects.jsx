@@ -108,6 +108,19 @@ function ProjectModal({ project, onClose }) {
             </span>
           ))}
         </div>
+
+        {project.repo && (
+          <a
+            href={project.repo}
+            target="_blank"
+            rel="noreferrer"
+            className="btn-regal mt-4"
+            style={{ padding: '0.7rem 1.5rem', fontSize: '0.9rem' }}
+          >
+            <i className="fa-brands fa-github" aria-hidden="true" />
+            View source on GitHub
+          </a>
+        )}
       </div>
     </div>,
     document.body,
@@ -132,7 +145,7 @@ export default function Projects({ projects = [] }) {
           eyebrow="Selected Work"
           title="Datasets and artifacts that"
           highlight="train the frontier"
-          description="Six engagements spanning alignment, evaluation, multimodal annotation, multilingual data and model safety."
+          description="Dataset and evaluation engagements alongside nine open-source tools — spanning alignment, evaluation, safety, and production engineering in Python, TypeScript, Go, Rust, Elixir, Java and SQL."
         />
 
         <Reveal className="d-flex flex-wrap justify-content-center gap-2 mb-5">
@@ -220,7 +233,11 @@ export default function Projects({ projects = [] }) {
                     <span className="font-mono" style={{ fontSize: '0.72rem', color: 'var(--accent-light)' }}>
                       {project.metrics[0].value} {project.metrics[0].label}
                     </span>
-                    <i className="fa-solid fa-arrow-right" style={{ color: 'var(--accent)', fontSize: '0.8rem' }} aria-hidden="true" />
+                    <i
+                      className={`fa-${project.repo ? 'brands fa-github' : 'solid fa-arrow-right'}`}
+                      style={{ color: 'var(--accent)', fontSize: '0.85rem' }}
+                      aria-hidden="true"
+                    />
                   </div>
                 </div>
               </TiltCard>

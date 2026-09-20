@@ -793,6 +793,294 @@
         "Safety",
         "Hallucination"
       ]
+    },
+    {
+      "id": 7,
+      "title": "eval-harness",
+      "category": "Open Source",
+      "accent": "credible",
+      "icon": "fa-brands fa-python",
+      "summary": "Rubric scoring, inter-annotator agreement and preference ranking for LLM evaluation — zero runtime dependencies.",
+      "detail": "A dependency-free Python toolkit for the measurement side of LLM evaluation: weighted rubric scoring normalised to [0,1], five agreement coefficients including Krippendorff's alpha for uneven rater coverage, and Bradley-Terry preference ranking that accounts for opponent strength.",
+      "metrics": [
+        {
+          "label": "Tests",
+          "value": "98"
+        },
+        {
+          "label": "Coverage",
+          "value": "98%"
+        },
+        {
+          "label": "Deps",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "Python",
+        "RLHF",
+        "Bradley-Terry",
+        "Cohen's κ",
+        "mypy --strict",
+        "pytest"
+      ],
+      "repo": "https://github.com/njoroge-viktor/eval-harness"
+    },
+    {
+      "id": 8,
+      "title": "preference-sdk",
+      "category": "Open Source",
+      "accent": "royal",
+      "icon": "fa-brands fa-js",
+      "summary": "Typed TypeScript toolkit for building, validating and auditing RLHF preference datasets before they reach a trainer.",
+      "detail": "Detects the failure modes that quietly ruin a reward model — length bias, position bias, split leakage — with a sign test, and splits datasets on a prompt hash so no prompt straddles train and test. TypeScript strict with noUncheckedIndexedAccess and exactOptionalPropertyTypes.",
+      "metrics": [
+        {
+          "label": "Tests",
+          "value": "102"
+        },
+        {
+          "label": "Coverage",
+          "value": "100%"
+        },
+        {
+          "label": "Deps",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "TypeScript",
+        "DPO",
+        "GRPO",
+        "Reward Modelling",
+        "Vitest",
+        "ESLint"
+      ],
+      "repo": "https://github.com/njoroge-viktor/preference-sdk"
+    },
+    {
+      "id": 9,
+      "title": "annotation-gateway",
+      "category": "Open Source",
+      "accent": "purpose",
+      "icon": "fa-brands fa-golang",
+      "summary": "Lease-based task distribution gateway for annotation workforces. Token-bucket rate limiting, Prometheus metrics, zero dependencies.",
+      "detail": "A Go HTTP gateway that hands annotation tasks out on time-limited leases so abandoned work returns to the pool, with per-annotator token-bucket rate limiting and Prometheus metrics. Standard library only — a ~10MB static binary in a scratch container.",
+      "metrics": [
+        {
+          "label": "Coverage",
+          "value": "95.6%"
+        },
+        {
+          "label": "Throughput",
+          "value": "concurrent"
+        },
+        {
+          "label": "Deps",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "Go",
+        "OTP-style leases",
+        "Rate limiting",
+        "Prometheus",
+        "-race",
+        "Docker"
+      ],
+      "repo": "https://github.com/njoroge-viktor/annotation-gateway"
+    },
+    {
+      "id": 10,
+      "title": "eval-dashboard",
+      "category": "Open Source",
+      "accent": "exuberance",
+      "icon": "fa-brands fa-react",
+      "summary": "Next.js dashboard for evaluation runs: Wilson confidence intervals, two-proportion regression testing and agreement warnings.",
+      "detail": "A Next.js 14 dashboard that distinguishes a real regression from sampling noise. Every pass rate carries a Wilson confidence interval, run-over-run changes are gated by a two-proportion z-test, and low inter-annotator agreement is surfaced above the leaderboard. Server Components, statistics run at build time.",
+      "metrics": [
+        {
+          "label": "Tests",
+          "value": "75"
+        },
+        {
+          "label": "Coverage",
+          "value": "99.7%"
+        },
+        {
+          "label": "Render",
+          "value": "Server"
+        }
+      ],
+      "tags": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Wilson interval",
+        "RSC",
+        "Vitest"
+      ],
+      "repo": "https://github.com/njoroge-viktor/eval-dashboard"
+    },
+    {
+      "id": 11,
+      "title": "jsonl-sentinel",
+      "category": "Open Source",
+      "accent": "divine",
+      "icon": "fa-brands fa-rust",
+      "summary": "Streaming schema validator for JSONL annotation exports. Constant memory, line-accurate errors, 685k records/s.",
+      "detail": "A Rust validator for multi-gigabyte JSONL exports that holds one line at a time: 685,000 records/s in 2.6MB of RAM, measured. Catches out-of-taxonomy labels, type drift, duplicates and schema violations with the exact line number, and exit codes a CI job can act on.",
+      "metrics": [
+        {
+          "label": "Throughput",
+          "value": "685k/s"
+        },
+        {
+          "label": "Peak RAM",
+          "value": "2.6MB"
+        },
+        {
+          "label": "Tests",
+          "value": "38"
+        }
+      ],
+      "tags": [
+        "Rust",
+        "Streaming",
+        "JSONL",
+        "COCO",
+        "clippy::pedantic",
+        "serde"
+      ],
+      "repo": "https://github.com/njoroge-viktor/jsonl-sentinel"
+    },
+    {
+      "id": 12,
+      "title": "review-queue",
+      "category": "Open Source",
+      "accent": "credible",
+      "icon": "fa-solid fa-flask-vial",
+      "summary": "Concurrent lease-based review queue for annotation workforces. OTP supervision, ETS-backed ordered index, Bandit HTTP.",
+      "detail": "An Elixir/OTP review queue that serialises claims through a GenServer so no task is ever handed to two annotators, backed by an ordered ETS index for O(log n) priority dispatch. Uses Bandit rather than Cowboy after mix flagged CVE-2026-43966 in cowlib.",
+      "metrics": [
+        {
+          "label": "Tests",
+          "value": "52"
+        },
+        {
+          "label": "Coverage",
+          "value": "93%"
+        },
+        {
+          "label": "Dialyzer",
+          "value": "clean"
+        }
+      ],
+      "tags": [
+        "Elixir",
+        "OTP",
+        "GenServer",
+        "ETS",
+        "Phoenix/Bandit",
+        "Dialyzer"
+      ],
+      "repo": "https://github.com/njoroge-viktor/review-queue"
+    },
+    {
+      "id": 13,
+      "title": "redteam-cli",
+      "category": "Safety",
+      "accent": "exuberance",
+      "icon": "fa-solid fa-shield-halved",
+      "summary": "Adversarial prompt runner for LLM safety evaluation. Content-aware refusal classification and severity-weighted risk scoring.",
+      "detail": "A Node.js red-team runner that classifies what a model actually did — catching 'I cannot help, but here is how' as a breach via payload detection, where a grep-for-refusal harness fails. Severity-weighted risk scoring, reproducible reports, zero dependencies.",
+      "metrics": [
+        {
+          "label": "Tests",
+          "value": "76"
+        },
+        {
+          "label": "Coverage",
+          "value": "98%"
+        },
+        {
+          "label": "Deps",
+          "value": "0"
+        }
+      ],
+      "tags": [
+        "JavaScript",
+        "Node.js",
+        "Red-Team",
+        "Jailbreak",
+        "Prompt Injection",
+        "node:test"
+      ],
+      "repo": "https://github.com/njoroge-viktor/redteam-cli"
+    },
+    {
+      "id": 14,
+      "title": "reward-scoring-service",
+      "category": "Open Source",
+      "accent": "royal",
+      "icon": "fa-brands fa-java",
+      "summary": "Banking-grade REST service for weighted rubric scoring of reward-model data. Spring Boot 3, Java 21, one error shape.",
+      "detail": "A Spring Boot 3 service that normalises weighted rubric scores onto [0,1], with domain invariants enforced in record constructors, one error envelope across every endpoint, and a batch cap that protects the worker pool. Coverage-gated in the build.",
+      "metrics": [
+        {
+          "label": "Tests",
+          "value": "28"
+        },
+        {
+          "label": "Coverage",
+          "value": "95%"
+        },
+        {
+          "label": "Java",
+          "value": "21"
+        }
+      ],
+      "tags": [
+        "Java",
+        "Spring Boot",
+        "Records",
+        "Jacoco",
+        "Gradle",
+        "JUnit 5"
+      ],
+      "repo": "https://github.com/njoroge-viktor/reward-scoring-service"
+    },
+    {
+      "id": 15,
+      "title": "eval-warehouse",
+      "category": "Evaluation",
+      "accent": "divine",
+      "icon": "fa-solid fa-database",
+      "summary": "dbt + DuckDB analytics warehouse for evaluation telemetry. Wilson-bounded leaderboards and two-proportion regression detection.",
+      "detail": "A dbt + DuckDB warehouse that turns raw annotation telemetry into Wilson-bounded leaderboards, Fleiss' kappa agreement and z-tested regression detection. The statistics live in tested SQL macros, and a canary test asserts a planted regression is still caught.",
+      "metrics": [
+        {
+          "label": "Models",
+          "value": "7"
+        },
+        {
+          "label": "Tests",
+          "value": "32"
+        },
+        {
+          "label": "Engine",
+          "value": "DuckDB"
+        }
+      ],
+      "tags": [
+        "SQL",
+        "dbt",
+        "DuckDB",
+        "Wilson interval",
+        "Fleiss' κ",
+        "Analytics Engineering"
+      ],
+      "repo": "https://github.com/njoroge-viktor/eval-warehouse"
     }
   ],
   "education": [
