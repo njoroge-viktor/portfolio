@@ -32,6 +32,18 @@
     <title>Victor Njoroge — PhD Software Engineer & AI Evaluation Specialist</title>
   </head>
   <body>
+    <!-- Netlify Forms detects forms by scanning the deployed HTML at build
+         time. This SPA renders its real form with React, which the scanner
+         never sees, so this hidden copy registers the form and its fields.
+         The visible form posts to it. -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="subject" />
+      <textarea name="message"></textarea>
+      <input name="bot-field" />
+    </form>
+
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

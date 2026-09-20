@@ -1,0 +1,33 @@
+# Netlify build configuration.
+# Connect the repo at app.netlify.com — these settings are picked up
+# automatically, so nothing needs to be typed into the Netlify UI.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  # Pin the toolchain so Netlify builds on the same major version as local dev.
+  NODE_VERSION = "20"
+
+# Single-page app: serve index.html for any unmatched path, so refreshing or
+# deep-linking never 404s. Netlify processes form submissions before redirects,
+# so the contact form's POST to / is unaffected.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# Vite fingerprints everything in /assets, so it can be cached indefinitely.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
