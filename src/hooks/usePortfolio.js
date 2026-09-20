@@ -1,7 +1,20 @@
 import { useEffect, useState } from 'react'
 import fallbackDb from '../../db.json'
 
-const API = import.meta.env.VITE_API_URL || 'http://localhost:4000'
+/**
+ * Where the live API lives, if anywhere.
+ *
+ * - Set VITE_API_URL to point at a real json-server deployment.
+ * - Otherwise we only assume localhost in dev. A static production build (a
+ *   Netlify deploy, say) has no json-server behind it, and reaching for
+ *   http://localhost:4000 from an HTTPS page is blocked as mixed content
+ *   anyway — so production renders straight from the bundled db.json.
+ */
+export const API =
+  import.meta.env.VITE_API_URL || (import.meta.env.DEV ? 'http://localhost:4000' : '')
+
+/** True when a live API is configured; false on a plain static deploy. */
+export const HAS_API = Boolean(API)
 
 // Collections mirrored from db.json. json-server exposes each top-level key
 // as its own endpoint, so we fan out and rebuild the same shape client-side.
@@ -19,10 +32,10 @@ const COLLECTIONS = [
 ]
 
 /**
- * Loads the portfolio from the json-server API, falling back to the bundled
- * db.json when the API is not running. db.json stays the single source of
- * truth either way — the fallback is the very same file, imported at build
- * time — so the site never renders empty just because the API is down.
+ * Loads the portfolio from the json-server API when one is configured, falling
+ * back to the bundled db.json otherwise (or when the API is unreachable).
+ * db.json stays the single source of truth either way — the fallback is the
+ * very same file, imported at build time — so the site never renders empty.
  */
 export function usePortfolio() {
   const [data, setData] = useState(null)
@@ -30,6 +43,13 @@ export function usePortfolio() {
   const [error, setError] = useState(null)
 
   useEffect(() => {
+    // No API configured: use the bundled copy immediately, no network at all.
+    if (!HAS_API) {
+      setData(fallbackDb)
+      setSource('local')
+      return
+    }
+
     let cancelled = false
     const controller = new AbortController()
     const timeout = setTimeout(() => controller.abort(), 4000)
@@ -70,5 +90,3 @@ export function usePortfolio() {
 
   return { data, source, error, loading: data === null }
 }
-
-export { API }

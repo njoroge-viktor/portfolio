@@ -61,14 +61,44 @@ npm run preview  # serve the production build
 **Editing content means editing `db.json` — no component changes required.** json-server watches
 the file, so saving it refreshes the API immediately.
 
-### Offline fallback
+### Where the data comes from
 
-`usePortfolio` fetches from the API first. If json-server is not running, it falls back to the
-same `db.json` imported at build time, so the site never renders empty. The footer shows which
-source is live. Set `VITE_API_URL` (see `.env.example`) to point at a different API host.
+`usePortfolio` decides at build time:
 
-The contact form POSTs to `/messages`, which json-server appends to `db.json`. With the API down
-the form reports the failure and offers a `mailto:` link instead.
+- **Development** — fetches from json-server on `localhost:4000`, falling back to the bundled
+  `db.json` if it is not running.
+- **Production** — reads the bundled `db.json` directly and makes no network request at all.
+  A static host has no json-server behind it, and calling `localhost` from an HTTPS page is
+  blocked as mixed content regardless.
+- **Either** — set `VITE_API_URL` (see `.env.example`) to point at a real API and that wins.
+
+The footer shows which source is live.
+
+### Contact form
+
+- **Development** — POSTs to `/messages`; json-server appends the submission to `db.json`.
+- **Production** — submits to [Netlify Forms](https://docs.netlify.com/forms/setup/). Netlify
+  detects forms by scanning deployed HTML at build time, and never sees a React-rendered form, so
+  `index.html` carries a hidden copy that registers the form and its fields. Submissions appear
+  under **Forms** in the Netlify dashboard. A honeypot field filters bots.
+
+Either way, a failure leaves the visitor a `mailto:` link.
+
+## Deploying to Netlify
+
+`netlify.toml` holds the whole configuration, so nothing needs to be typed into the Netlify UI:
+build command `npm run build`, publish directory `dist`, Node 20, an SPA catch-all redirect, cache
+headers for fingerprinted assets, and a few security headers.
+
+1. In Netlify, **Add new site → Import an existing project → GitHub**.
+2. Pick this repository. The settings are read from `netlify.toml` — leave them as shown.
+3. **Deploy**. Every push to `main` redeploys; pull requests get preview deploys.
+
+To enable contact-form notifications, open **Site configuration → Forms → Form notifications**
+after the first deploy and add an email notification for the `contact` form.
+
+No environment variables are required. Set `VITE_API_URL` in Netlify only if you later host the
+API somewhere real.
 
 ## Subliminal colour coding
 
@@ -116,6 +146,7 @@ devices.
 ```
 db.json                   # the database — edit this to change content
 index.html
+netlify.toml              # build command, publish dir, redirects, headers
 tailwind.config.js        # preflight disabled; palette + fonts
 src/
   main.jsx                # Bootstrap → Tailwind → theme.css, in that order

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Reveal from './Reveal.jsx'
 import TiltCard from './TiltCard.jsx'
 import SectionHeading from './SectionHeading.jsx'
-import { API } from '../hooks/usePortfolio.js'
+import { API, HAS_API } from '../hooks/usePortfolio.js'
 
 const EMPTY = { name: '', email: '', subject: '', message: '' }
 
@@ -24,20 +24,34 @@ export default function Contact({ profile = {} }) {
     setStatus({ state: 'sending', message: '' })
 
     try {
-      // Posts into the `messages` collection in db.json via json-server.
-      const res = await fetch(`${API}/messages`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, receivedAt: new Date().toISOString() }),
-      })
-      if (!res.ok) throw new Error(`HTTP ${res.status}`)
+      if (HAS_API) {
+        // Dev: json-server persists into the `messages` collection in db.json.
+        const res = await fetch(`${API}/messages`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ ...form, receivedAt: new Date().toISOString() }),
+        })
+        if (!res.ok) throw new Error(`HTTP ${res.status}`)
+      } else {
+        // Static deploy: hand off to Netlify Forms. Netlify detects the form
+        // from the hidden copy in index.html at build time, then accepts
+        // url-encoded POSTs to any path on the site.
+        const res = await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams({ 'form-name': 'contact', ...form }).toString(),
+        })
+        if (!res.ok) throw new Error(`HTTP ${res.status}`)
+      }
 
       setForm(EMPTY)
-      setStatus({ state: 'sent', message: 'Message received and saved. Victor will be in touch shortly.' })
+      setStatus({ state: 'sent', message: 'Message received. Victor will be in touch shortly.' })
     } catch (err) {
       setStatus({
         state: 'error',
-        message: `Could not reach the local API (${err.message}). Start it with "npm run api", or email ${profile.email} directly.`,
+        message: HAS_API
+          ? `Could not reach the local API (${err.message}). Start it with "npm run api", or email ${profile.email} directly.`
+          : `Could not send your message (${err.message}). Please email ${profile.email} directly.`,
       })
     }
   }
@@ -124,7 +138,20 @@ export default function Contact({ profile = {} }) {
           <div className="col-lg-7">
             <Reveal delay={120}>
               <TiltCard accent="royal" aura className="card-pad" max={4}>
-                <form onSubmit={handleSubmit} className="layer-1">
+                <form
+                  onSubmit={handleSubmit}
+                  className="layer-1"
+                  name="contact"
+                  method="POST"
+                  data-netlify="true"
+                  netlify-honeypot="bot-field"
+                >
+                  <input type="hidden" name="form-name" value="contact" />
+                  <p className="d-none">
+                    <label>
+                      Leave this empty: <input name="bot-field" tabIndex={-1} autoComplete="off" />
+                    </label>
+                  </p>
                   <div className="row g-3">
                     <div className="col-sm-6">
                       <label htmlFor="cf-name" className="eyebrow d-block mb-2">
@@ -132,6 +159,7 @@ export default function Contact({ profile = {} }) {
                       </label>
                       <input
                         id="cf-name"
+                        name="name"
                         type="text"
                         required
                         value={form.name}
@@ -147,6 +175,7 @@ export default function Contact({ profile = {} }) {
                       </label>
                       <input
                         id="cf-email"
+                        name="email"
                         type="email"
                         required
                         value={form.email}
@@ -162,6 +191,7 @@ export default function Contact({ profile = {} }) {
                       </label>
                       <input
                         id="cf-subject"
+                        name="subject"
                         type="text"
                         required
                         value={form.subject}
@@ -177,6 +207,7 @@ export default function Contact({ profile = {} }) {
                       </label>
                       <textarea
                         id="cf-message"
+                        name="message"
                         required
                         rows={5}
                         value={form.message}
