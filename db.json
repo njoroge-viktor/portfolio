@@ -1,0 +1,940 @@
+{
+  "profile": {
+    "name": "Victor Njoroge",
+    "firstName": "Victor",
+    "lastName": "Njoroge",
+    "title": "PhD Software Engineer",
+    "subtitle": "Backend Systems & AI Evaluation Specialist",
+    "tagline": "Secure Code · RLHF · Frontier-Model Evaluation",
+    "roles": [
+      "PhD Software Engineer",
+      "AI Evaluation Specialist",
+      "Senior Backend Engineer",
+      "Technical Specification Author",
+      "RLHF & Alignment Expert"
+    ],
+    "location": "Austin, TX, USA",
+    "email": "victornjoroge174@gmail.com",
+    "linkedin": "https://linkedin.com/in/victor-njoroge-bb27943b5/",
+    "github": "https://github.com/njoroge-viktor",
+    "availability": "Available Immediately · Remote & Hybrid",
+    "openTo": "Open to AI evaluation, annotation, full-stack engineering, and technical documentation engagements",
+    "summary": "PhD-trained software engineer and AI evaluation specialist with over eight years of combined experience spanning three interlocking spheres: end-to-end AI data annotation and large language model evaluation, senior backend software engineering, and technical specification authorship for frontier AI training pipelines.",
+    "summaryLong": [
+      "Deep, hands-on expertise across reinforcement learning from human feedback, supervised fine-tuning, direct preference optimization, reward modelling, chain-of-thought evaluation, code hallucination detection, multimodal and vision-language evaluation, red-team and adversarial testing, and PII and bias auditing.",
+      "Complemented by production backend engineering at Standard Chartered Bank, where structured data schema design, API contracts, and observability practices directly underpin current work on annotation infrastructure, JSON and JSONL validation, and rigorous evaluation rubrics.",
+      "Most recently leading documentation and specification authorship, producing canonical engineering reference artifacts including incident reports, system design documents, RFCs, API specifications, runbooks, and sprint planning artifacts used as training and evaluation references for large language models."
+    ]
+  },
+  "stats": [
+    {
+      "id": 1,
+      "value": 8,
+      "suffix": "+",
+      "label": "Years of Experience",
+      "icon": "fa-solid fa-hourglass-half",
+      "accent": "royal"
+    },
+    {
+      "id": 2,
+      "value": 500,
+      "suffix": "+",
+      "label": "RLHF Preference Pairs",
+      "icon": "fa-solid fa-code-compare",
+      "accent": "purpose"
+    },
+    {
+      "id": 3,
+      "value": 5000,
+      "suffix": "+",
+      "label": "Multimodal Pairs Annotated",
+      "icon": "fa-solid fa-eye",
+      "accent": "credible"
+    },
+    {
+      "id": 4,
+      "value": 96,
+      "suffix": "%",
+      "label": "Inter-Rater Agreement",
+      "icon": "fa-solid fa-award",
+      "accent": "divine"
+    }
+  ],
+  "spheres": [
+    {
+      "id": 1,
+      "key": "ai",
+      "name": "AI Annotation & LLM Evaluation",
+      "label": "Sphere 1",
+      "accent": "royal",
+      "icon": "fa-solid fa-brain",
+      "blurb": "End-to-end RLHF, alignment and frontier-model evaluation across coding, STEM and general domains.",
+      "skills": [
+        {
+          "name": "LLM Evaluation & RLHF",
+          "level": 98,
+          "detail": "End-to-end RLHF and RLAIF workflows; preference ranking and reward signal generation using Likert-scale and pairwise comparison frameworks; Constitutional AI alignment assessment; rubric-based scoring for correctness, safety, helpfulness and harmlessness."
+        },
+        {
+          "name": "Supervised Fine-Tuning & Prompt Engineering",
+          "level": 96,
+          "detail": "Authoring high-quality SFT prompt-and-response pairs, instruction-tuning datasets, multi-turn dialogue scripts, chain-of-thought demonstrations and scratchpad reasoning traces; expert adversarial and edge-case prompt design."
+        },
+        {
+          "name": "Advanced Alignment: DPO · PPO · GRPO",
+          "level": 94,
+          "detail": "Hands-on application of Direct Preference Optimization, Proximal Policy Optimization, Group Relative Policy Optimization, reward modelling, self-play data generation, synthetic data creation and data flywheel pipeline contribution."
+        },
+        {
+          "name": "Tool Use & Function Calling Evaluation",
+          "level": 92,
+          "detail": "Structured evaluation of LLM tool-use and function-calling; assessing correctness of API selection, parameter generation, multi-step tool chaining and error recovery across Python, REST API and database scenarios."
+        },
+        {
+          "name": "Multimodal & Vision-Language Evaluation",
+          "level": 90,
+          "detail": "Evaluation of GPT-4V, Gemini Vision and LLaVA on image-text alignment, visual question answering, chart and diagram comprehension, document understanding and multimodal instruction following."
+        },
+        {
+          "name": "Code Evaluation & Hallucination Detection",
+          "level": 97,
+          "detail": "Rigorous review of AI-generated Python, TypeScript, JavaScript, SQL and Elixir; identifying logic errors, security vulnerabilities, race conditions, memory leaks and hallucinated APIs; authoring gold-standard rewrites with pedagogical rationales."
+        },
+        {
+          "name": "Red-Team & Adversarial Evaluation",
+          "level": 93,
+          "detail": "Systematic probing for unsafe content, biased reasoning, factual hallucinations, jailbreak vulnerabilities, prompt injection attacks and plausible-but-incorrect derivations; severity-rated documentation of failure patterns."
+        },
+        {
+          "name": "Multilingual Annotation — English & Swahili",
+          "level": 95,
+          "detail": "Native-fluent English and Swahili annotation covering technical localization, cross-lingual NER, translation quality assessment, culturally sensitive content review and multilingual dialogue authoring."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "key": "engineering",
+      "name": "Software Engineering & Backend Systems",
+      "label": "Sphere 2",
+      "accent": "credible",
+      "icon": "fa-solid fa-server",
+      "blurb": "Banking-grade backend services, schema design and distributed systems serving millions of users.",
+      "skills": [
+        {
+          "name": "Backend Engineering & API Design",
+          "level": 96,
+          "detail": "Production backend services in Python, Elixir and TypeScript serving millions of users; RESTful API design, versioned API contracts, JWT authentication, rate limiting and OpenAPI specification authorship."
+        },
+        {
+          "name": "Data Schema Design & Validation",
+          "level": 95,
+          "detail": "Structured schema design, schema drift detection and automated validation pipelines in Python and SQL; applied to JSON, JSONL, COCO and YOLO annotation schema validation across AI training datasets."
+        },
+        {
+          "name": "Distributed Systems & Observability",
+          "level": 92,
+          "detail": "Performance modelling and scalable architecture from PhD research applied to production observability, logging and monitoring; bottleneck diagnosis and data quality reporting across distributed banking architectures."
+        },
+        {
+          "name": "Full-Stack Development",
+          "level": 93,
+          "detail": "End-to-end delivery across Python (Django, Flask, SQLAlchemy), TypeScript and JavaScript (React.js, Node.js, Redux, Express) and Elixir (Phoenix); from authentication and database integration to deployment."
+        },
+        {
+          "name": "Cloud, DevOps & CI/CD",
+          "level": 89,
+          "detail": "AWS (EC2, S3), Docker, Kubernetes, Redis and CI/CD pipelines on GitHub Actions; Linux and Bash administration, infrastructure observability and zero-downtime deployment practices."
+        },
+        {
+          "name": "Database Engineering",
+          "level": 94,
+          "detail": "Advanced SQL across PostgreSQL and MySQL covering schema design, indexing, query tuning and performance profiling; data modelling for high-throughput transactional systems."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "key": "documentation",
+      "name": "Technical Specification & QA",
+      "label": "Sphere 3",
+      "accent": "divine",
+      "icon": "fa-solid fa-feather-pointed",
+      "blurb": "Canonical engineering reference artifacts and evaluation rubrics used to train and grade frontier models.",
+      "skills": [
+        {
+          "name": "Technical Specification Authorship",
+          "level": 97,
+          "detail": "Incident reports, system design documents, RFCs, API specifications, bug triage trackers, runbooks and sprint planning artifacts; outputs used directly as training and evaluation references for large language models."
+        },
+        {
+          "name": "Evaluation Rubric & Guideline Design",
+          "level": 96,
+          "detail": "Annotator guidelines, edge-case appendices, decision trees, worked examples and counter-examples; gold-standard, honeypot and calibration tasks; multi-dimensional grading rubrics covering accuracy, coherence, instruction-following, citation fidelity, safety and formatting."
+        },
+        {
+          "name": "QA Leadership & Auditing",
+          "level": 94,
+          "detail": "Leading QA sweeps of exported annotation datasets using Python to detect schema errors, label drift and out-of-taxonomy values in JSON, COCO and JSONL exports; measuring inter-annotator agreement with Cohen's and Fleiss' kappa."
+        },
+        {
+          "name": "Structured Tool Fluency",
+          "level": 92,
+          "detail": "Comfortable navigating industry-standard platforms and tools; spotting broken JSON structures, invalid schemas and malformed configuration files at a glance."
+        },
+        {
+          "name": "Constructive Technical Feedback",
+          "level": 93,
+          "detail": "Clear, structured, actionable feedback to peers, creators and scenario designers across iterative review cycles; documented in standardized formats consumed by research, operations and engineering teams."
+        },
+        {
+          "name": "Canonical Source Curation",
+          "level": 91,
+          "detail": "Sourcing, cleaning and submitting authoritative reference documents from industry-leading sources; incident reports, release runbooks, security references and design collaboration documents."
+        }
+      ]
+    }
+  ],
+  "toolCategories": [
+    {
+      "id": 1,
+      "name": "AI Training & Evaluation Platforms",
+      "icon": "fa-solid fa-robot",
+      "accent": "royal",
+      "items": [
+        "Mercor",
+        "TELUS Digital AI",
+        "Alignerr",
+        "Snorkel AI",
+        "Scale AI",
+        "Outlier",
+        "Remotasks",
+        "DataAnnotation.tech",
+        "Appen",
+        "Surge AI",
+        "Prolific",
+        "Crucible",
+        "Airtable"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Annotation & QA Platforms",
+      "icon": "fa-solid fa-vector-square",
+      "accent": "purpose",
+      "items": [
+        "CVAT",
+        "Labelbox",
+        "Label Studio",
+        "Rex Expert",
+        "SuperAnnotate",
+        "Encord",
+        "Roboflow",
+        "V7 Darwin",
+        "Dataloop",
+        "Kili"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "LLMs & Multimodal Models Evaluated",
+      "icon": "fa-solid fa-microchip",
+      "accent": "exuberance",
+      "items": [
+        "GPT-4 / GPT-4o",
+        "GPT-4V",
+        "Claude 3 / 3.5 Sonnet",
+        "Gemini 1.5 Pro",
+        "Gemini Vision",
+        "LLaMA 3",
+        "Mistral Large",
+        "Falcon 180B",
+        "Grok-1",
+        "LLaVA"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Python Stack",
+      "icon": "fa-brands fa-python",
+      "accent": "credible",
+      "items": [
+        "pandas",
+        "NumPy",
+        "SciPy",
+        "scikit-learn",
+        "statsmodels",
+        "matplotlib",
+        "seaborn",
+        "Django",
+        "Flask",
+        "SQLAlchemy",
+        "Jupyter"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Backend & Full-Stack",
+      "icon": "fa-solid fa-layer-group",
+      "accent": "divine",
+      "items": [
+        "Python",
+        "TypeScript",
+        "JavaScript",
+        "Elixir (Phoenix)",
+        "React.js",
+        "Node.js",
+        "Redux",
+        "Express",
+        "PostgreSQL",
+        "MySQL"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Cloud, DevOps & Infrastructure",
+      "icon": "fa-solid fa-cloud",
+      "accent": "credible",
+      "items": [
+        "AWS EC2",
+        "AWS S3",
+        "Docker",
+        "Kubernetes",
+        "Redis",
+        "GitHub Actions",
+        "CI/CD",
+        "Linux & Bash",
+        "Git"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Document Authoring & OOXML",
+      "icon": "fa-solid fa-file-code",
+      "accent": "divine",
+      "items": [
+        "Microsoft Word",
+        "Google Docs",
+        "Markdown",
+        "OOXML / docx XML",
+        "Structural cleanup",
+        "Image preservation"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Project Management & Collaboration",
+      "icon": "fa-solid fa-diagram-project",
+      "accent": "purpose",
+      "items": [
+        "Jira",
+        "Asana",
+        "Airtable",
+        "GitHub Projects",
+        "JSON editors",
+        "Consensus pipelines",
+        "Reviewer & QA queues"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "id": 1,
+      "role": "Technical Specification Author & Documentation Specialist",
+      "type": "Contract",
+      "company": "Remote, USA",
+      "period": "May 2026 – Present",
+      "start": "2026-05",
+      "end": null,
+      "current": true,
+      "accent": "divine",
+      "icon": "fa-solid fa-feather-pointed",
+      "summary": "Contract documentation specialist producing canonical software engineering reference artifacts for large language model training and evaluation pipelines.",
+      "highlights": [
+        {
+          "title": "Technical Specification Authorship",
+          "text": "Authored seven or more detailed technical specifications across software engineering artifact categories including incident reports, system design documents, RFCs, API specifications, bug triage trackers, runbooks and sprint planning artifacts; outputs used directly as training and evaluation references for large language models."
+        },
+        {
+          "title": "Canonical Source Curation",
+          "text": "Sourced, cleaned and submitted eleven or more canonical engineering documents from authoritative public sources, covering incident reports, release runbooks, security references and design collaboration documents."
+        },
+        {
+          "title": "Document Preparation Pipeline",
+          "text": "Built a repeatable document-preparation pipeline including canonical source extraction, structural cleanup at the OOXML and docx XML layer, hyperlink and chrome stripping, and image preservation; reduced per-document preparation time significantly through standardized templates and reusable cleanup scripts."
+        },
+        {
+          "title": "Reviewer Calibration",
+          "text": "Calibrated work against multiple reviewers across iterative cycles, meeting standards for structure, specificity, formatting and self-containment; incorporated feedback rapidly to maintain high acceptance rates on submitted documents."
+        }
+      ],
+      "stack": [
+        "OOXML",
+        "Markdown",
+        "RFCs",
+        "Runbooks",
+        "API Specs"
+      ]
+    },
+    {
+      "id": 2,
+      "role": "Senior AI Trainer & Code Evaluator",
+      "type": "Full-time",
+      "company": "Remote, USA",
+      "period": "Jul 2023 – Apr 2026",
+      "start": "2023-07",
+      "end": "2026-04",
+      "current": false,
+      "accent": "royal",
+      "icon": "fa-solid fa-brain",
+      "summary": "Lead evaluator and RLHF specialist delivering PhD-level software engineering expertise across LLM training, alignment and evaluation projects covering code assessment, multimodal tasks, safety auditing and iterative data flywheel contribution.",
+      "highlights": [
+        {
+          "title": "RLHF, DPO & GRPO Preference Ranking",
+          "text": "Conducted structured side-by-side ranking of LLM-generated code and reasoning responses in Python and TypeScript using pairwise comparison and Likert-scale rubrics; preference signals fed directly into reward model training pipelines via DPO, PPO and GRPO frameworks, contributing to iterative data flywheel improvement cycles."
+        },
+        {
+          "title": "SFT Gold Standard Authoring",
+          "text": "Authored thousands of high-quality SFT prompt-and-response pairs, chain-of-thought traces and scratchpad reasoning demonstrations across REST API design, distributed systems, database optimization and algorithmic problem-solving, with verified accuracy and clean pedagogical formatting."
+        },
+        {
+          "title": "Code Hallucination Detection",
+          "text": "Identified hallucinated APIs, fabricated library methods, incorrect algorithmic complexity claims, race conditions and memory leak patterns in AI-generated code; produced detailed, reproducible rationales and gold-standard corrections supporting model improvement cycles."
+        },
+        {
+          "title": "Multimodal & Vision-Language Evaluation",
+          "text": "Evaluated GPT-4V and Gemini Vision outputs on image-text alignment, chart comprehension, document understanding and visual question answering; annotated image-text pairs for preference ranking and factual correctness to support multimodal fine-tuning pipelines."
+        },
+        {
+          "title": "Model Safety & Bias Auditing",
+          "text": "Applied Constitutional AI evaluation rubrics to assess model outputs for harmlessness, honesty and helpfulness; conducted PII redaction reviews and bias auditing across demographic and linguistic dimensions; flagged outputs violating safety guidelines with severity ratings."
+        },
+        {
+          "title": "Adversarial Prompt & Red-Team Design",
+          "text": "Designed complex adversarial prompts targeting model reasoning in edge cases including concurrent programming, cryptographic implementation, SQL injection and jailbreak vulnerability patterns; documented failure modes with reproducibility steps for modeller review."
+        }
+      ],
+      "stack": [
+        "RLHF",
+        "DPO",
+        "PPO",
+        "GRPO",
+        "Python",
+        "TypeScript",
+        "Constitutional AI"
+      ]
+    },
+    {
+      "id": 3,
+      "role": "AI Annotation Specialist",
+      "type": "Contract",
+      "company": "Remote, USA",
+      "period": "Jan 2023 – Jun 2023",
+      "start": "2023-01",
+      "end": "2023-06",
+      "current": false,
+      "accent": "purpose",
+      "icon": "fa-solid fa-tags",
+      "summary": "Specialist annotator and evaluator contributing software engineering and multilingual expertise to LLM fine-tuning, preference optimization and safety evaluation projects.",
+      "highlights": [
+        {
+          "title": "Instruction-Tuning & SFT Dataset Creation",
+          "text": "Produced SFT instruction-response pairs and chain-of-thought demonstrations covering full-stack development, system design and data engineering, ensuring factual accuracy, logical completeness and JSONL formatting consistency for downstream fine-tuning pipelines."
+        },
+        {
+          "title": "Multilingual Evaluation — English & Swahili",
+          "text": "Performed cross-lingual quality assessment of AI-generated Swahili content, evaluating fluency, cultural appropriateness and factual accuracy; authored corrective rewrites and PII redaction reviews for multilingual localization training datasets."
+        },
+        {
+          "title": "Preference Data Generation & Reward Modelling",
+          "text": "Generated structured preference datasets by ranking and annotating model responses across coding and general knowledge tasks using pairwise comparison frameworks; detailed rationales informed reward model training and DPO pipeline optimization."
+        },
+        {
+          "title": "Red-Team & Safety Testing",
+          "text": "Systematically probed model outputs for jailbreak vulnerabilities, unsafe content generation, biased reasoning patterns and prompt injection attacks; documented reproducible failure cases with severity ratings for safety team review."
+        }
+      ],
+      "stack": [
+        "JSONL",
+        "SFT",
+        "Swahili NLP",
+        "Reward Modelling"
+      ]
+    },
+    {
+      "id": 4,
+      "role": "Data Annotation Specialist",
+      "type": "Contract",
+      "company": "Remote, USA",
+      "period": "Jul 2022 – Dec 2022",
+      "start": "2022-07",
+      "end": "2022-12",
+      "current": false,
+      "accent": "credible",
+      "icon": "fa-solid fa-database",
+      "summary": "Programmatic labelling and annotation specialist contributing to weakly supervised learning pipelines, NLP evaluation datasets and document annotation workflows.",
+      "highlights": [
+        {
+          "title": "Labelling Function Design",
+          "text": "Developed and validated programmatic labelling functions for text classification, NER, relation extraction and document layout analysis, achieving high coverage and precision on evaluation benchmarks; tracked dataset versions and label provenance across pipeline iterations."
+        },
+        {
+          "title": "NLP & Document Annotation",
+          "text": "Performed entity and relation annotation, textual entailment labelling, coreference resolution and document structure annotation including table detection, figure extraction and OCR correction across large English and Swahili corpora; maintained inter-annotator agreement above 92 percent."
+        },
+        {
+          "title": "Dataset QA & Schema Validation",
+          "text": "Led QA sweeps of exported annotation datasets using Python scripts to detect schema errors, label drift and out-of-taxonomy values in JSON, COCO and JSONL exports; produced versioned quality reports for data engineering teams."
+        },
+        {
+          "title": "Annotation Guideline Authorship",
+          "text": "Wrote annotator guidelines, decision trees and edge-case appendices for NLP and document labelling tasks; designed honeypot and calibration tasks; monitored inter-annotator agreement and coordinated targeted retraining for underperforming labellers."
+        }
+      ],
+      "stack": [
+        "Snorkel",
+        "NER",
+        "COCO",
+        "JSONL",
+        "Python"
+      ]
+    },
+    {
+      "id": 5,
+      "role": "Expert AI Evaluator & MCQ Designer",
+      "type": "Contract",
+      "company": "Remote, USA",
+      "period": "Apr 2022 – Jun 2022",
+      "start": "2022-04",
+      "end": "2022-06",
+      "current": false,
+      "accent": "exuberance",
+      "icon": "fa-solid fa-list-check",
+      "summary": "Expert software engineering evaluator and assessment designer for LLM benchmarking, capability evaluation and open-source codebase reasoning projects.",
+      "highlights": [
+        {
+          "title": "LLM Benchmarking & MCQ Design",
+          "text": "Designed and validated multiple-choice questions targeting LLM reasoning across software engineering, distributed systems, algorithm design and data structures; questions calibrated to distinguish genuine conceptual understanding from surface-level pattern matching and hallucinated confidence."
+        },
+        {
+          "title": "Chain-of-Thought Evaluation",
+          "text": "Assessed LLM chain-of-thought and scratchpad reasoning traces for logical coherence, step completeness and factual accuracy; identified reasoning shortcuts, skipped derivation steps and plausible-sounding but incorrect conclusions."
+        },
+        {
+          "title": "Open-Source Codebase Evaluation",
+          "text": "Evaluated LLM-generated responses to open-source codebase tasks including architectural recommendations, debugging strategies and refactoring approaches; produced ground-truth annotations and structured rationales against verified solutions."
+        },
+        {
+          "title": "Evaluation Rubric Design",
+          "text": "Developed scoring rubrics for automated and human evaluation of LLM coding outputs covering correctness, efficiency, security posture, documentation quality and instruction-following fidelity; rubrics integrated into evaluation pipelines."
+        }
+      ],
+      "stack": [
+        "Benchmarking",
+        "Chain-of-Thought",
+        "Rubric Design"
+      ]
+    },
+    {
+      "id": 6,
+      "role": "Image & Video Annotation Specialist",
+      "type": "Contract",
+      "company": "Remote, USA",
+      "period": "Jan 2022 – Mar 2022",
+      "start": "2022-01",
+      "end": "2022-03",
+      "current": false,
+      "accent": "purpose",
+      "icon": "fa-solid fa-image",
+      "summary": "Specialist image, video and document annotator delivering high-accuracy labelling across industrial, autonomous systems and general-domain visual datasets.",
+      "highlights": [
+        {
+          "title": "Bounding Box, Polygon & Document Annotation",
+          "text": "Annotated large-scale image, video and document datasets using bounding box, polygon and polyline tools across object detection, scene understanding, autonomous vehicle perception and document layout analysis; performed OCR correction and table and figure extraction on scanned document datasets."
+        },
+        {
+          "title": "Semantic & Instance Segmentation",
+          "text": "Performed pixel-precise semantic and instance segmentation across urban street scenes, industrial environments and medical imaging samples; maintained throughput and accuracy above platform quality thresholds."
+        },
+        {
+          "title": "Video Frame Annotation",
+          "text": "Labelled individual frames across video sequences with temporal consistency checks to maintain label coherence; flagged ambiguous or uncertain frames for reviewer adjudication."
+        },
+        {
+          "title": "Keypoint, Landmark & Pose Estimation",
+          "text": "Annotated human pose estimation datasets using keypoint and landmark schemas; ensured anatomical consistency and occlusion handling across diverse postures, camera angles and partial-visibility scenarios."
+        }
+      ],
+      "stack": [
+        "CVAT",
+        "Segmentation",
+        "YOLO",
+        "COCO",
+        "Pose Estimation"
+      ]
+    },
+    {
+      "id": 7,
+      "role": "Senior Backend Engineer",
+      "type": "Full-time",
+      "company": "Standard Chartered Bank",
+      "period": "Jul 2020 – Dec 2021",
+      "start": "2020-07",
+      "end": "2021-12",
+      "current": false,
+      "accent": "credible",
+      "icon": "fa-solid fa-building-columns",
+      "summary": "Built secure, high-performance backend services for a global banking platform; data schema design, pipeline architecture and API validation expertise directly underpins current annotation infrastructure, label schema authorship and programmatic QA scripting.",
+      "highlights": [
+        {
+          "title": "Schema Design & Data Pipeline Architecture",
+          "text": "Designed and implemented structured data schemas and versioned API contracts consumed by millions of users in Elixir and Python; schema validation discipline and data consistency practices directly applied to annotation label schema design, JSONL and COCO export validation and dataset provenance tracking."
+        },
+        {
+          "title": "Programmatic Data Validation",
+          "text": "Built automated validation pipelines to enforce data quality, detect schema drift and flag anomalous records before downstream consumption; methodology directly transferred to Python-based programmatic QA scripts used across annotation and LLM evaluation dataset releases."
+        },
+        {
+          "title": "Observability, Logging & Quality Reporting",
+          "text": "Implemented advanced logging and monitoring systems to diagnose bottlenecks and surface data quality issues in distributed architectures; analytical reporting approach underpins throughput and quality metric reporting delivered to annotation platform leads and AI research teams."
+        },
+        {
+          "title": "Technical Documentation & Guideline Writing",
+          "text": "Authored detailed technical specifications, API documentation and onboarding guides for engineering teams; a foundation for annotation guideline authorship, edge-case appendix writing and annotator calibration task design across subsequent AI training roles."
+        }
+      ],
+      "stack": [
+        "Elixir",
+        "Phoenix",
+        "Python",
+        "PostgreSQL",
+        "Redis",
+        "Docker",
+        "AWS"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "title": "RLHF Reward Model Training Dataset",
+      "category": "Alignment",
+      "accent": "royal",
+      "icon": "fa-solid fa-code-compare",
+      "summary": "Authored 500+ structured preference pairs across Python and TypeScript code tasks for a major LLM provider's reward model training pipeline using DPO and GRPO frameworks.",
+      "detail": "Structured side-by-side preference pairs spanning algorithmic problem-solving, REST API design and database optimization. Each pair carried a written rationale that fed directly into reward model training, with calibration batches shared across reviewers to measure agreement.",
+      "metrics": [
+        {
+          "label": "Preference Pairs",
+          "value": "500+"
+        },
+        {
+          "label": "Inter-Rater Agreement",
+          "value": "96%"
+        },
+        {
+          "label": "Frameworks",
+          "value": "DPO · GRPO"
+        }
+      ],
+      "tags": [
+        "RLHF",
+        "DPO",
+        "GRPO",
+        "Reward Modelling",
+        "Python",
+        "TypeScript"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "LLM Technical Specification Library",
+      "category": "Documentation",
+      "accent": "divine",
+      "icon": "fa-solid fa-book-open",
+      "summary": "Authored seven or more canonical technical specification documents covering incident reports, RFCs, API specs, runbooks and sprint artifacts.",
+      "detail": "A reference library of engineering artifacts built to serve as training and evaluation ground truth for large language models. Paired with eleven or more authoritative reference documents sourced and cleaned from industry-leading public sources, processed through a repeatable OOXML cleanup pipeline.",
+      "metrics": [
+        {
+          "label": "Specifications Authored",
+          "value": "7+"
+        },
+        {
+          "label": "Canonical Sources Curated",
+          "value": "11+"
+        },
+        {
+          "label": "Artifact Categories",
+          "value": "7"
+        }
+      ],
+      "tags": [
+        "RFCs",
+        "Runbooks",
+        "API Specs",
+        "Incident Reports",
+        "OOXML"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Chain-of-Thought Evaluation Benchmark",
+      "category": "Evaluation",
+      "accent": "credible",
+      "icon": "fa-solid fa-diagram-project",
+      "summary": "Designed and annotated a 300-task chain-of-thought evaluation benchmark across software engineering and algorithm design domains.",
+      "detail": "Each task assessed reasoning trace completeness, logical coherence and step-by-step derivation accuracy, calibrated to surface reasoning shortcuts, skipped derivation steps and plausible-sounding but incorrect conclusions.",
+      "metrics": [
+        {
+          "label": "Benchmark Tasks",
+          "value": "300"
+        },
+        {
+          "label": "Domains",
+          "value": "SWE · Algorithms"
+        },
+        {
+          "label": "Axes Scored",
+          "value": "3"
+        }
+      ],
+      "tags": [
+        "Chain-of-Thought",
+        "Benchmarking",
+        "Reasoning",
+        "Rubric Design"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Multimodal Vision-Language Annotation Dataset",
+      "category": "Multimodal",
+      "accent": "exuberance",
+      "icon": "fa-solid fa-eye",
+      "summary": "Annotated 5,000+ image-text pairs for visual question answering, chart comprehension and document understanding tasks.",
+      "detail": "Preference-ranked GPT-4V and Gemini Vision outputs to support multimodal fine-tuning pipelines, covering image-text alignment, chart and diagram comprehension and document understanding across diverse visual domains.",
+      "metrics": [
+        {
+          "label": "Image-Text Pairs",
+          "value": "5,000+"
+        },
+        {
+          "label": "Models Ranked",
+          "value": "GPT-4V · Gemini"
+        },
+        {
+          "label": "Task Types",
+          "value": "VQA · Charts · Docs"
+        }
+      ],
+      "tags": [
+        "Multimodal",
+        "VQA",
+        "GPT-4V",
+        "Gemini Vision",
+        "Preference Ranking"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Swahili NLP Localization Dataset",
+      "category": "Multilingual",
+      "accent": "purpose",
+      "icon": "fa-solid fa-language",
+      "summary": "Led creation of a 10,000-utterance Swahili instruction-tuning dataset covering conversational AI, technical support and cultural knowledge domains.",
+      "detail": "Native-fluent authorship and review across every batch, with PII redaction reviews and consistency checks applied throughout. Built for East African and global AI deployment contexts where cultural appropriateness matters as much as fluency.",
+      "metrics": [
+        {
+          "label": "Utterances",
+          "value": "10,000"
+        },
+        {
+          "label": "Domains",
+          "value": "3"
+        },
+        {
+          "label": "PII Review",
+          "value": "All batches"
+        }
+      ],
+      "tags": [
+        "Swahili",
+        "Instruction Tuning",
+        "Localization",
+        "PII Redaction"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Adversarial Safety & Red-Team Dataset",
+      "category": "Safety",
+      "accent": "royal",
+      "icon": "fa-solid fa-shield-halved",
+      "summary": "Designed and executed 300+ adversarial prompts targeting safety boundaries of frontier LLMs.",
+      "detail": "Documented jailbreak patterns, refusal calibration gaps, prompt injection vulnerabilities and hallucination categories for model safety teams, each with severity ratings and reproducibility steps for modeller review.",
+      "metrics": [
+        {
+          "label": "Adversarial Prompts",
+          "value": "300+"
+        },
+        {
+          "label": "Failure Categories",
+          "value": "4"
+        },
+        {
+          "label": "Output",
+          "value": "Severity-rated"
+        }
+      ],
+      "tags": [
+        "Red-Team",
+        "Jailbreak",
+        "Prompt Injection",
+        "Safety",
+        "Hallucination"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "id": 1,
+      "degree": "PhD, Software Engineering",
+      "note": "Part-Time",
+      "school": "California State University",
+      "location": "USA",
+      "period": "2019 – 2022",
+      "icon": "fa-solid fa-graduation-cap",
+      "accent": "royal"
+    },
+    {
+      "id": 2,
+      "degree": "MSc, Software Engineering",
+      "note": null,
+      "school": "University of Lincoln",
+      "location": "UK",
+      "period": "2015 – 2017",
+      "icon": "fa-solid fa-user-graduate",
+      "accent": "divine"
+    },
+    {
+      "id": 3,
+      "degree": "BSc, Applied Computer Science",
+      "note": null,
+      "school": "University of Washington",
+      "location": "USA",
+      "period": "2010 – 2014",
+      "icon": "fa-solid fa-scroll",
+      "accent": "credible"
+    }
+  ],
+  "certifications": [
+    {
+      "id": 1,
+      "name": "Full-Stack Software Engineering Certification",
+      "issuer": "Flatiron School, New York, USA",
+      "year": null,
+      "icon": "fa-solid fa-code",
+      "accent": "purpose",
+      "detail": "1,000+ hours covering Python (Flask, Django), React.js, Git Flow, and Agile and Scrum methodologies. Capstone delivered an end-to-end full-stack application from authentication to database integration."
+    },
+    {
+      "id": 2,
+      "name": "AI Ethics and Responsible Data Training",
+      "issuer": "DeepLearning.AI",
+      "year": null,
+      "icon": "fa-solid fa-scale-balanced",
+      "accent": "royal",
+      "detail": "Responsible data practice, fairness auditing and ethical considerations across the AI training lifecycle."
+    },
+    {
+      "id": 3,
+      "name": "Cloud Computing Basics",
+      "issuer": "Google Cloud Skills Boost",
+      "year": null,
+      "icon": "fa-solid fa-cloud",
+      "accent": "credible",
+      "detail": "Core cloud infrastructure concepts, deployment models and managed service fundamentals."
+    },
+    {
+      "id": 4,
+      "name": "Cybersecurity Fundamentals",
+      "issuer": "Coursera",
+      "year": null,
+      "icon": "fa-solid fa-lock",
+      "accent": "exuberance",
+      "detail": "Security posture fundamentals underpinning secure code review and vulnerability identification work."
+    },
+    {
+      "id": 5,
+      "name": "CS50: Introduction to Computer Science",
+      "issuer": "Harvard University (Online)",
+      "year": "2020",
+      "icon": "fa-solid fa-terminal",
+      "accent": "divine",
+      "detail": "Harvard's foundational computer science curriculum covering algorithms, data structures and systems programming."
+    }
+  ],
+  "languages": [
+    {
+      "id": 1,
+      "name": "English",
+      "level": "Native & Full Professional Proficiency",
+      "percent": 100,
+      "accent": "credible",
+      "detail": "Technical writing, annotation guideline authorship, LLM evaluation and gold-standard dataset authorship."
+    },
+    {
+      "id": 2,
+      "name": "Swahili",
+      "level": "Native",
+      "percent": 100,
+      "accent": "purpose",
+      "detail": "Technical localization, multilingual NLP annotation, cross-cultural content review and East African AI deployment context expertise."
+    }
+  ],
+  "navigation": [
+    {
+      "id": 1,
+      "label": "Home",
+      "href": "#home",
+      "icon": "fa-solid fa-house"
+    },
+    {
+      "id": 2,
+      "label": "About",
+      "href": "#about",
+      "icon": "fa-solid fa-user"
+    },
+    {
+      "id": 3,
+      "label": "Expertise",
+      "href": "#expertise",
+      "icon": "fa-solid fa-brain"
+    },
+    {
+      "id": 4,
+      "label": "Experience",
+      "href": "#experience",
+      "icon": "fa-solid fa-briefcase"
+    },
+    {
+      "id": 5,
+      "label": "Projects",
+      "href": "#projects",
+      "icon": "fa-solid fa-cubes"
+    },
+    {
+      "id": 6,
+      "label": "Credentials",
+      "href": "#credentials",
+      "icon": "fa-solid fa-certificate"
+    },
+    {
+      "id": 7,
+      "label": "Contact",
+      "href": "#contact",
+      "icon": "fa-solid fa-paper-plane"
+    }
+  ],
+  "messages": []
+}

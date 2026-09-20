@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.env
+.env.local
+.DS_Store
+*.log
+
+# Source CV — kept local, not published. Its content is served via db.json.
+*.docx
